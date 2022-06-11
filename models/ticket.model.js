@@ -3,19 +3,25 @@ const mongoose=require('mongoose');
 
 // status=["Pending","In Progress","Completed"];
 const TicketSchema=mongoose.Schema({
-    creatorId:{
-        type:String,
-        required:true
+    creator:{
+        name:String,
+        id:String
     },
-    recvId:{
-        type:String,
-        required:true
+    recv:{
+        name:String,
+        id:String
     },
     transferHistory:[
         {
-            from:String,
+            from:{
+                name:String,
+                id:String
+            },
             reason:String,
-            to:String
+            to:{
+                name:String,
+                id:String
+            }
         }
     ],
     status:{
@@ -30,7 +36,8 @@ const TicketSchema=mongoose.Schema({
     isDeleted:{
         type:Boolean,
         default:false
-    }
+    },
+    answer:String
 },{timestamps:true});
 
 

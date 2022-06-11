@@ -9,12 +9,17 @@ const app = express();
 
 // mongodb://localhost:27017/neuroQuery
 
-const MONGO_URI='mongodb+srv://me:Ka04mw1613@cluster0.82mqnkd.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+const MONGO_URI='mongodb://localhost:27017/neuroQuery';
 app.use(cors());
 app.use(express.json());
 // app.use(express.urlencoded({ extended: false }));
 // app.use(morgan('dev'));
 app.use('/api/ticket',require('./routes/ticket.route'));
+app.use('/api/user',require('./routes/user.route'));
+app.use('/api/room',require('./routes/room.route'))
+app.use('/api/msg',require('./routes/msg.route'))
+
+
 
 app.get('/', async (req, res, next) => {
   res.send({ message: 'Awesome it works 🐻' });

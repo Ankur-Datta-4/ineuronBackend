@@ -4,14 +4,12 @@ const ticketModel=require('../models/ticket.model');
 
 //create Ticket
 const createTicket=async(req,res,next)=>{
-    const {uid}=req.params;//user id
     
     try {
         const ticket=await ticketModel.create(req.body);
-        //update user stack of tickets or don't
 
         if(!ticket){
-            throw(createError.NotAcceptable);
+            throw(createError(500,`Invalid data`));
         }
         return res.json({data:ticket});
     } catch (error) {
@@ -26,7 +24,7 @@ const getTickets=async(req,res,next)=>{
 
     try {
         
-         const tickets=await ticketModel.find({recvId:uid,isDeleted:false});
+         const tickets=await ticketModel.find({[recv.id]:uid,isDeleted:false});
         if(status){
             //filter by status;
             let splitVals={'Pending':[],'In Progress':[],"Completed":[]}
@@ -78,14 +76,28 @@ const transferTicket=async(req,res,next)=>{
     const pushObj={from,to,reason};
     try {
         const presentTicket=await ticketModel.findById(id);
-        if(presentTicket.recvId===from){
+        if(presentTicket.recv.id===from.id){
             // console.log(presentTicket);
-            const updatedTicket=await ticketModel.findByIdAndUpdate(id,{recvId:to,transferHistory:[pushObj,...presentTicket.transferHistory]});
+
+            const updatedTicket=await ticketModel.findByIdAndUpdate(id,{recv:to,transferHistory:[pushObj,...presentTicket.transferHistory]});
             return res.json({updatedTicket});
         }else{
             throw(createError.NotFound);
         }
         
+    } catch (error) {
+        next(error);
+    }
+}
+
+
+const answerTicket=async(req,res,next)=>{
+    const {id}=req.params;
+    const {answer}=req.body;
+    try {
+        // no error handling
+        const ticket=await ticketModel.findByIdAndUpdate(id,{answer,status:'Completed'},{new:true});
+        return res.json({ticket});
     } catch (error) {
         next(error);
     }
@@ -132,5 +144,6 @@ module.exports={
     deleteOneTicket,
     transferTicket,
     updateStatus,
-    batchUpdate
+    batchUpdate,
+    answerTicket
 }

@@ -42,7 +42,7 @@ content-type: application/json
 
 
 ###
-PATCH http://localhost:5000/api/ticket/u/34 HTTP/1.1
+PATCH https://neuro-query.herokuapp.com/api/ticket/u/34 HTTP/1.1
 Content-Type: application/json
 
 

@@ -1,4 +1,4 @@
-const { getTickets, createTicket, getOneTicket, updateStatus, deleteOneTicket, transferTicket, batchUpdate } = require('../controller/ticket.ctrl');
+const { getTickets, createTicket, getOneTicket, updateStatus, deleteOneTicket, transferTicket, batchUpdate, answerTicket } = require('../controller/ticket.ctrl');
 // const { route } = require('./api.route');
 
 const router=require('express').Router();
@@ -20,5 +20,7 @@ router.route('/:id')
 router.route('/transfer/:id')
     .patch(transferTicket);
 
+router.route('/answer/:id')
+    .patch(answerTicket);
 
 module.exports=router;

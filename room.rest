@@ -1,0 +1,39 @@
+###
+POST http://localhost:5000/api/room HTTP/1.1
+Content-Type: application/json
+
+{
+    "name":"sample_room2",
+    "desc":"this is a sample room2",
+    "admins":[{
+        "name":"test1",
+        "id":"62a4fb22fb74ec19ecabb41a"}]
+    
+}
+
+###
+PATCH  http://localhost:5000/api/room/62a512cf1cc23324971a2e87 HTTP/1.1
+Content-Type: application/json
+
+{
+    "uid":"62a4fabafb74ec19ecabb414",
+    "name":"test0",
+    "code":"y2kZBz"
+}
+
+###
+GET http://localhost:5000/api/room/code/62a512cf1cc23324971a2e87 HTTP/1.1
+Content-Type: application/json
+
+{
+    "uid":"62a4fb22fb74ec19ecabb41a"
+}
+
+###
+GET http://localhost:5000/api/room/admins/:id HTTP/1.1
+
+###
+GET http://localhost:5000/api/room/u/:id HTTP/1.1
+
+
+
