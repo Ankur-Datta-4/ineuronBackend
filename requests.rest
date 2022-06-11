@@ -4,7 +4,8 @@ content-type: application/json
 {
     "creatorId":"12",
     "recvId":"34",
-    "content":"yoyo krish",
+    "content":"Me neither",
+    "status":"In Progress",
     "tags":["lecturer","quality"]
 }
 
