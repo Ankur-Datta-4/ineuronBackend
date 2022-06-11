@@ -1,0 +1,118 @@
+POST http://localhost:5000/api/ticket/u/12 HTTP/1.1
+content-type: application/json
+
+{
+    "creatorId":"12",
+    "recvId":"34",
+    "content":"yoyo krish",
+    "tags":["lecturer","quality"]
+}
+
+###
+GET http://localhost:5000/api/ticket/u/34 HTTP/1.1
+
+###
+GET http://localhost:5000/api/ticket/u/34?status=true HTTP/1.1
+
+
+
+###
+GET http://localhost:5000/api/ticket/62a44f49a7b5de7cd75f75dc HTTP/1.1
+
+
+###
+PATCH  http://localhost:5000/api/ticket/62a471e947c1e490cd5f5456 HTTP/1.1
+content-type: application/json
+
+{
+    "status":"Completed"
+}
+
+###
+
+PATCH  http://localhost:5000/api/ticket/transfer/62a44f49a7b5de7cd75f75dc HTTP/1.1
+content-type: application/json
+
+{
+    "from":"34",
+    "to":"25",
+    "reason":"too busy for it"
+}
+
+
+###
+PATCH http://localhost:5000/api/ticket/u/34 HTTP/1.1
+Content-Type: application/json
+
+
+{
+    "splitVals": {
+    "Pending": [
+      {
+        "_id": "62a471dd47c1e490cd5f5454",
+        "creatorId": "12",
+        "recvId": "34",
+        "status": "Pending",
+        "content": "Bebe rexha",
+        "tags": [
+          "lecturer",
+          "quality"
+        ],
+        "isDeleted": false,
+        "transferHistory": [],
+        "createdAt": "2022-06-11T10:43:41.557Z",
+        "updatedAt": "2022-06-11T10:43:41.557Z",
+        "__v": 0
+      }
+      
+    ],
+    "In Progress": [
+      {
+        "_id": "62a45ece44306f727e1db59c",
+        "creatorId": "12",
+        "recvId": "34",
+        "status": "Pending",
+        "content": "lecturer isnt bad",
+        "tags": [
+          "lecturer",
+          "quality"
+        ],
+        "isDeleted": false,
+        "transferHistory": [],
+        "__v": 0
+      }
+    ],
+    "Completed": [
+      {
+        "_id": "62a471e947c1e490cd5f5456",
+        "creatorId": "12",
+        "recvId": "34",
+        "status": "Completed",
+        "content": "yoyo krish",
+        "tags": [
+          "lecturer",
+          "quality"
+        ],
+        "isDeleted": false,
+        "transferHistory": [],
+        "createdAt": "2022-06-11T10:43:53.016Z",
+        "updatedAt": "2022-06-11T10:45:23.728Z",
+        "__v": 0
+      },
+	  {
+        "_id": "62a45ed644306f727e1db59e",
+        "creatorId": "12",
+        "recvId": "34",
+        "status": "In Progress",
+        "content": "lecturer isnt good",
+        "tags": [
+          "lecturer",
+          "quality"
+        ],
+        "isDeleted": false,
+        "transferHistory": [],
+        "__v": 0
+      }
+    ]
+  }
+}
