@@ -1,4 +1,4 @@
-const { createRoom, joinRoom, getRoomCode, otherAdmins, getRooms } = require('../controller/room.ctrl');
+const { createRoom, joinRoom, getRoomCode, otherAdmins, getRooms, getRoom } = require('../controller/room.ctrl');
 
 const router=require('express').Router();
 
@@ -6,7 +6,8 @@ router.route('/')
     .post(createRoom);
 
 router.route('/:id')
-    .patch(joinRoom);
+    .patch(joinRoom)
+    .get(getRoom);
 
 router.route('/code/:id')
     .get(getRoomCode);

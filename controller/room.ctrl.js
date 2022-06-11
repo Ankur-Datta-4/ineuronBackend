@@ -119,10 +119,22 @@ const getRooms=async(req,res,next)=>{
         next(error)
     }   
 }
+
+const getRoom=async(req,res,next)=>{
+    const {id}=req.params;
+    try {
+        const room=await roomModel.findById(id);
+        if(!room) throw(createError(404,'room not found'));
+        return res.json({room});
+    } catch (error) {
+        next(error);
+    }
+}
 module.exports={
     createRoom,
     otherAdmins,
     joinRoom,
     getRoomCode,
-    getRooms
+    getRooms,
+    getRoom
 }

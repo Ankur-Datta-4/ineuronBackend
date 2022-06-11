@@ -1,20 +1,23 @@
 
 ###
-POST http://localhost:5000/api/msg/62a512cf1cc23324971a2e87 HTTP/1.1
+POST http://localhost:5000/api/msg/62a521d8dd16053eca6d2d1a HTTP/1.1
 Content-Type: application/json
 
 {
-    "from":{
-        "id":"62a4fabafb74ec19ecabb414",
+    "to":{
+        "id":"62a520e7dd16053eca6d2d0f",
         "name":"test0"
     },
-    "to":{
-        "id":"62a4fb22fb74ec19ecabb41a",
+    "from":
+        {
+        "id":"62a52100dd16053eca6d2d12",
         "name":"test1"
     },
-    "content":"They are shit"
+    
+    
+    "content":"yes ikr"
 }
 
 
 ###
-GET http://localhost:5000/api/msg/62a512cf1cc23324971a2e87 HTTP/1.1
+GET http://localhost:5000/api/msg/62a521d8dd16053eca6d2d1a HTTP/1.1
