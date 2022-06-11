@@ -14,3 +14,7 @@ Content-Type: application/json
     },
     "content":"They are shit"
 }
+
+
+###
+GET http://localhost:5000/api/msg/62a512cf1cc23324971a2e87 HTTP/1.1

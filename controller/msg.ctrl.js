@@ -18,6 +18,7 @@ const sendMessage=async(req,res,next)=>{
 const getMessage=async(req,res,next)=>{
     const {roomId}=req.params;
 
+
     try {
         const msgs=await msgModel.find({roomId});
         return res.json({msgs});

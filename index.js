@@ -9,7 +9,7 @@ const app = express();
 
 // mongodb://localhost:27017/neuroQuery
 
-const MONGO_URI='mongodb://localhost:27017/neuroQuery';
+const MONGO_URI='mongodb+srv://me:Ka04mw1613@cluster0.82mqnkd.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 app.use(cors());
 app.use(express.json());
 // app.use(express.urlencoded({ extended: false }));
