@@ -3,30 +3,30 @@ POST http://localhost:5000/api/room HTTP/1.1
 Content-Type: application/json
 
 {
-    "name":"sample_room2",
-    "desc":"this is a sample room2",
+    "name":"sample_room",
+    "desc":"this is a sample room",
     "admins":[{
         "name":"test1",
-        "id":"62a4fb22fb74ec19ecabb41a"}]
+        "id":"62a52100dd16053eca6d2d12"}]
     
 }
 
 ###
-PATCH  http://localhost:5000/api/room/62a512cf1cc23324971a2e87 HTTP/1.1
+PATCH  http://localhost:5000/api/room/62a521d8dd16053eca6d2d1a HTTP/1.1
 Content-Type: application/json
 
 {
-    "uid":"62a4fabafb74ec19ecabb414",
+    "uid":"62a520e7dd16053eca6d2d0f",
     "name":"test0",
-    "code":"y2kZBz"
+    "code":"7ZA32Z"
 }
 
 ###
-GET http://localhost:5000/api/room/code/62a512cf1cc23324971a2e87 HTTP/1.1
+GET http://localhost:5000/api/room/code/62a521d8dd16053eca6d2d1a HTTP/1.1
 Content-Type: application/json
 
 {
-    "uid":"62a4fb22fb74ec19ecabb41a"
+    "uid":"62a52100dd16053eca6d2d12"
 }
 
 ###
@@ -35,5 +35,14 @@ GET http://localhost:5000/api/room/admins/:id HTTP/1.1
 ###
 GET http://localhost:5000/api/room/u/:id HTTP/1.1
 
+
+###
+GET http://localhost:5000/api/room/62a521d8dd16053eca6d2d1a HTTP/1.1
+
+
+###
+GET http://localhost:5000/api/room/62a521d8dd16053eca6d2d1a HTTP/1.1
+
+###
 
 

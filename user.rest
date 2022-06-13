@@ -4,9 +4,9 @@ POST http://localhost:5000/api/user HTTP/1.1
 content-type: application/json
 
 {
-    "email":"testu2@test.com",
-    "name":"testu2",
-    "isAdmin":true
+    "email":"testAdmin3@test.com",
+    "name":"testA3",
+    "isAdmin":false
 }
 
 

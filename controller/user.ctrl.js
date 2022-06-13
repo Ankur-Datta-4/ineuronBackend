@@ -34,7 +34,7 @@ const getUserTickets=async(req,res,next)=>{
         const isPresentUser=await UserModel.findById(uid);
         if(!isPresentUser) throw(createError.NotFound);
 
-        const tickets=await ticketModel.find({creatorId:uid,isDeleted:false});
+        const tickets=await ticketModel.find({[creator.id]:uid,isDeleted:false});
 
         if(status){
             //filter by status;
